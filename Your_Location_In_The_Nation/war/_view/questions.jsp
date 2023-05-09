@@ -126,6 +126,10 @@ img {
   height: auto;
   opacity: 0.3;
 }
+td.label {
+			text-align: right;
+			color: #4CAF50;
+		}
         </style>
   
 </head>
@@ -138,7 +142,7 @@ img {
     <div class="img-container"> 
 
 <h2>Please answer each question.
-  (out of ten.)
+  (must add up to ten.)
 </h2>
 		<c:if test="${! empty errorMessage}">
 			<div class="error">${errorMessage}</div>

@@ -85,6 +85,10 @@ h2 {
             text-align: center;
         
         }
+        td.label {
+			text-align: right;
+			color: #4CAF50;
+		}
 </style>
 </head>
 <body>
