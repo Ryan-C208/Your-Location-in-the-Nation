@@ -13,7 +13,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
-width: 380px;
+width: 950px;
 padding: 20px 30px;
 background:#fff;
 box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
@@ -44,6 +44,12 @@ h1 {
 h2 {
   color: #4CAF50;
    font-family: Arial, Helvetica, sans-serif;
+}
+.success {
+	color: red;
+}
+.error {
+	color: red;
 }
 
 
@@ -103,6 +109,10 @@ h2 {
             text-align: center;
         
         }
+        td.label {
+			text-align: right;
+			color: #4CAF50;
+		}
 </style>
 </head>
 <body>

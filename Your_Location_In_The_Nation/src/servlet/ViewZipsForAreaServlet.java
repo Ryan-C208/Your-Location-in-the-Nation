@@ -24,7 +24,15 @@ public class ViewZipsForAreaServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("ViewZipsForArea Servlet: doGet");
-	        
+	    
+		String user = (String) req.getSession().getAttribute("user");
+		if (user == null) {
+			System.out.println("   User: <" + user + "> not logged in or session timed out");
+
+			// user is not logged in, or the session expired
+			resp.sendRedirect(req.getContextPath() + "/Login");
+			return;
+		}
 
 	    
 		

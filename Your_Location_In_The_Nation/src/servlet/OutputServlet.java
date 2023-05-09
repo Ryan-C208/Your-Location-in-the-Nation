@@ -20,7 +20,8 @@ import DatabasePersist.DerbyDatabase;
 public class OutputServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String Zipcode;
-	
+	Location bestLoc = null;
+	String FunThingsToDo = null;
 	@Override
     public void init() throws ServletException {
         super.init();
@@ -33,7 +34,16 @@ public class OutputServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
+		String user = (String) req.getSession().getAttribute("user");
+		if (user == null) {
+			System.out.println("   User: <" + user + "> not logged in or session timed out");
 
+			// user is not logged in, or the session expired
+			resp.sendRedirect(req.getContextPath() + "/Login");
+			return;
+		}
+		
 		System.out.println("Output Servlet: doGet");	
 		
 		
@@ -47,8 +57,7 @@ public class OutputServlet extends HttpServlet {
 		
 		
 		AboutTheArea about;
-		Location bestLoc = null;
-		String FunThingsToDo = null;
+		
 		System.out.println("Output Servlet: doPost");
 		
 
@@ -87,7 +96,7 @@ public class OutputServlet extends HttpServlet {
 			Zipcode = bestLoc.getZipcode();
 			
 		} catch (Exception e) {
-			errorMessage = "Error getting information";
+			errorMessage = "Error getting about the area info";
 		}
 		
 		// Add parameters as request attributes
@@ -168,6 +177,15 @@ public class OutputServlet extends HttpServlet {
 			}
 			req.setAttribute("errorMessage", errorMessage);
 			
+			req.setAttribute("AvgSalary", bestLoc.getAvgSalaryPerHouse());
+			
+			
+			
+			req.setAttribute("FunThingsToDo", FunThingsToDo);
+			
+			
+			
+			req.setAttribute("bestLoc", bestLoc);
 			
 			// Forward to view to render the result HTML document
 			req.getRequestDispatcher("/_view/output.jsp").forward(req, resp);

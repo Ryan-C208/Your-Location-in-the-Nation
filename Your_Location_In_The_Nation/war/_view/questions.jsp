@@ -47,6 +47,12 @@ h2 {
    font-family: Arial, Helvetica, sans-serif;
 }
 
+
+
+
+
+
+
 .button {
     background-color: #4CAF50; 
   border: none;
@@ -127,14 +133,18 @@ img {
   opacity: 0.3;
 }
 
+
 .loader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #3498db;
+  border-top: 16px solid green;
   width: 120px;
   height: 120px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
+  position: absolute;
+  top: 80%;
+  left: 45%
 }
 
 
@@ -144,6 +154,20 @@ img {
 }
 
 
+
+=======
+td.label {
+			text-align: right;
+			color: #4CAF50;
+		}
+		
+td.label1 {
+		
+		color: black;
+		position: relative;
+		left: 20%;
+
+}
 
         </style>
   
@@ -157,7 +181,7 @@ img {
     <div class="img-container"> 
 
 <h2>Please answer each question.
-  (out of ten.)
+  (Must add up to ten!)
 </h2>
 		<c:if test="${! empty errorMessage}">
 			<div class="error">${errorMessage}</div>
@@ -182,14 +206,25 @@ img {
 					<td class="label">Cost of living:</td>
 					<td><input type="text" name="costOfLiving" size="12" value="${costOfLiving}" /></td>
 				</tr>
+				
+				<tr>
+					
+					<td class = "label1"> Are you looking to rent or own property?
+					<select name = "COLTypes" multiple class="selectChoices">
+  					<option value="Rent">I'm looking to rent</option>
+  					<option value="Mortgage">I'm looking to own with Mortgage</option>
+  					<option value="NoMortgage">I'm looking to own with no Mortgage</option>
+  				
+					</select>
+					</td>
+				
+				</tr>
+				
+				
+				
 			</table>
 			
-			<select name = "COLTypes" multiple>
-  				<option value="Rent">Rent</option>
-  				<option value="Mortgage">Mortgage</option>
-  				<option value="NoMortgage">NoMortgage</option>
-  				
-			</select>
+			
 			
 			
 			

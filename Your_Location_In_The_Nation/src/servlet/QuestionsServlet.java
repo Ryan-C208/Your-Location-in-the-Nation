@@ -37,7 +37,14 @@ public class QuestionsServlet extends HttpServlet {
             throws ServletException, IOException {
 
         System.out.println("Questions Servlet: doGet");
+        String user = (String) req.getSession().getAttribute("user");
+		if (user == null) {
+			System.out.println("   User: <" + user + "> not logged in or session timed out");
 
+			// user is not logged in, or the session expired
+			resp.sendRedirect(req.getContextPath() + "/Login");
+			return;
+		}
    
         req.getRequestDispatcher("/_view/questions.jsp").forward(req, resp);
     }
@@ -86,11 +93,16 @@ public class QuestionsServlet extends HttpServlet {
                 System.out.print(averageSalaryFactor);
                 System.out.print(costOfLivingFactor);
                 
+                if(COLType == null) {
+                	errorMessage = "Please select Cost of living type.";
+                }
                 
-                
-                if (crimeRateFactor + averageSalaryFactor + costOfLivingFactor != 10) {
+                else if (crimeRateFactor + averageSalaryFactor + costOfLivingFactor != 10) {
                     errorMessage = "Please answer all the questions and make them equal to 10.";
                 } 
+                
+                
+                
                 else {
                     //get COL Type
                 	if(COLType == "Rent") {

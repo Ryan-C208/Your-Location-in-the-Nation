@@ -59,6 +59,12 @@
 			
 			
 		}
+		
+		h1 {
+  			color: #4CAF50;
+  			text-align: center;
+   			font-family: Arial, Helvetica, sans-serif;
+			}
 		.Enter {
 			background-color:  #4CAF50;
   			color: black;
@@ -107,9 +113,11 @@
 				</div>
 				
 			<div class="header">
-				<p align="center">Search for an area name to get zipcodes for the area!</p>
-			
+				
 				<input class = "index" type="Submit" name="index" value="Index">
+				<h1 align="center">Search for an area name to get zipcodes for the area!</h1>
+			
+				
 			
 			
 				<hr  color="black">

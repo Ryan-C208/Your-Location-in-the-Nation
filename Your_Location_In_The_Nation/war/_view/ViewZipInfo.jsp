@@ -35,6 +35,12 @@
 			
 		}
 		
+		h1 {
+ 	 color: #4CAF50;
+  	text-align: center;
+   	font-family: Arial, Helvetica, sans-serif;
+}
+		
 		
 		.LocationTable{
 			position : absolute;
@@ -110,9 +116,11 @@
 				</div>
 				
 			<div class="header">
-				<p align="center">Enter the Zipcode that you would like more information about!</p>
-			
 				<input class = "index" type="Submit" name="index" value="Index">
+				
+				<h1 align="center">Enter the Zipcode that you would like more information about!</h1>
+			
+				
 			
 			
 				<hr  color="black">

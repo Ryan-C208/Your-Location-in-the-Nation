@@ -24,7 +24,7 @@ border-radius: 10px;
 	border: none;
 	outline: none;
 	font-size: 15px;
-	background:#222;
+	background:#4CAF50;
 	color:#f5f5f5;
 border-radius: 10px;
 cursor: pointer;
@@ -55,6 +55,10 @@ transform: translate(-10px);
     transform: translate(0);
   }  
 }
+h2 {
+  color: #4CAF50;
+   font-family: Arial, Helvetica, sans-serif;
+}
 
 </style>
 <html>
@@ -67,6 +71,7 @@ transform: translate(-10px);
 		
 		td.label {
 			text-align: right;
+			color: #4CAF50;
 		}
 		</style>
 	</head>
