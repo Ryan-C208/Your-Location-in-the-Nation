@@ -151,7 +151,7 @@ h2 {
 					<td>${bestLoc.state}</td>
 				</tr>
 				<tr>
-					<td class="label">Zipcode:</td>
+					<td class="label">ZIP code:</td>
 					<td>${bestLoc.zipcode}</td>
 				</tr>
 				

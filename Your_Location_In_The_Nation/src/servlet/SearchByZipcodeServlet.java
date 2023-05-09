@@ -16,7 +16,7 @@ import UserModel.PopularLocations;
 public class SearchByZipcodeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DerbyDatabase database;
-
+	Location Location = null;
 	@Override
 	public void init() throws ServletException {
 		super.init();
@@ -48,9 +48,13 @@ public class SearchByZipcodeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("SearchByZipcode Servlet: doPost");
 		//needs database attribute
-		String errorMessage;
+		String errorMessage = null;
     	String Zipcode = req.getParameter("Zipcode");
-        Location Location = null;
+        
+        boolean saved = false;
+        String username = (String) req.getSession().getAttribute("user");
+        
+        
 		//if user clicks submit
         if(req.getParameter("submit") != null) {
         	try {
@@ -65,13 +69,14 @@ public class SearchByZipcodeServlet extends HttpServlet {
             
 
     		if(Location == null) {
-    			errorMessage = "No Location in our database matched that zipcode";
+    			errorMessage = "No location in our database matched that ZIP code";
     			System.out.print(errorMessage);
     			req.setAttribute("errorMessage", errorMessage);
     		}
     		else {
     			req.setAttribute("Location", Location);
     			req.setAttribute("avgsal", Location.getAvgSalaryPerHouse());
+    			req.setAttribute("Zipcode", Zipcode);
     		}
     	       
     	    
@@ -85,6 +90,31 @@ public class SearchByZipcodeServlet extends HttpServlet {
         	resp.sendRedirect(req.getContextPath() + "/index");
         	return;
         }
+        else if(req.getParameter("save") != null) {
+			
+			try {
+				saved = database.SaveLocation(username, Zipcode);
+				System.out.print(username);
+				System.out.print(Zipcode);
+			} catch (SQLException e) {
+				errorMessage = "Database error";
+				
+			}
+			
+			if(saved == false) {
+				errorMessage = "Failed to save location. It may already be saved in your account";
+			}
+			else {
+				String success = "Saved!";
+				req.setAttribute("success", success);
+			}
+			req.setAttribute("errorMessage", errorMessage);
+			
+			
+			
+			// Forward to view to render the result HTML document
+			req.getRequestDispatcher("/_view/ViewZipInfo.jsp").forward(req, resp);
+		}
         
         
         

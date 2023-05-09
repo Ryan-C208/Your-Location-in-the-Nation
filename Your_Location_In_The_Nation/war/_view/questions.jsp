@@ -181,7 +181,7 @@ td.label1 {
     <div class="img-container"> 
 
 <h2>Please answer each question.
-  (Must add up to ten!)
+  (All factors must add up to ten and none can be zero!)
 </h2>
 		<c:if test="${! empty errorMessage}">
 			<div class="error">${errorMessage}</div>
@@ -245,6 +245,9 @@ td.label1 {
     		        
             		div.className = "loader";
             		document.body.appendChild(div);
+            	
+            		
+            		
     			}
     			
     			

@@ -35,6 +35,12 @@
 			
 		}
 		
+		.message {
+			color: red;
+			font-size: 23px;
+		}
+		
+		
 		h1 {
  	 color: #4CAF50;
   	text-align: center;
@@ -53,13 +59,7 @@
 			border: 1px solid;
 		}
 	
-		.error {
-			position: relative;
-			left: 130%;
-			color: red;
-			
-		
-		}
+	
 		
 		.searchbar {
 			text-align: center;
@@ -68,6 +68,20 @@
 			
 			
 		}
+		.save {
+			background-color:  #4CAF50;
+  			color: black;
+  			border: 2px solid #4CAF50;
+			position: absolute;
+			height: 75px;
+			width: 150px;
+			top: 400%;
+			left: 40%;
+		
+		
+		}
+		
+		
 		.Enter {
 			background-color:  #4CAF50;
   			color: black;
@@ -113,17 +127,25 @@
 				
 				<input class = "Enter" type="Submit" name="submit" value="Search">
 				
+				<c:if test="${! empty Location}">
+				
+					<input class = "save" type="Submit" name="save" value="Save this Location">
+				</c:if>
+				
 				</div>
 				
 			<div class="header">
 				<input class = "index" type="Submit" name="index" value="Index">
 				
-				<h1 align="center">Enter the Zipcode that you would like more information about!</h1>
+				<h1 align="center">Enter the ZIP code that you would like more information about!</h1>
 			
 				
 			
 			
 				<hr  color="black">
+				
+				
+				
 		
 		
 			</div>
@@ -134,15 +156,15 @@
 				
 				
 				
-			
+			<c:if test="${! empty errorMessage}">
+					<div class="message">${errorMessage}</div>
+				
+				</c:if>
 					
 			<div class = "LocationTable">
 					
 				
-				<c:if test="${! empty errorMessage}">
-					<div class="error">${errorMessage}</div>
 				
-				</c:if>
 				
 				
 				
@@ -158,7 +180,7 @@
 						<th>Name</th>
 						<th>County</th>
 						<th>State</th>
-						<th>Zipcode</th>
+						<th>ZIP code</th>
 						<th>Income</th>
 						<th>Cost of Living(with rent)</th>
 						<th>Cost of Living(with mortgage)</th>
@@ -199,8 +221,12 @@
 				</c:if>
 				
 				
+				
 				</div>
-					
+				
+				<c:if test="${! empty success}">
+					<div class="message">${success}</div>
+				</c:if>
 		
 				
 			

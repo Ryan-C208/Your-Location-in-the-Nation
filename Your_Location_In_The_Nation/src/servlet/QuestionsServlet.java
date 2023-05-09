@@ -160,7 +160,7 @@ public class QuestionsServlet extends HttpServlet {
             			return;
                     }
                     else {
-                    	errorMessage = "We were not able to find a Location that matched that criteria";
+                    	errorMessage = "We were not able to find a location that matched that criteria";
                     }
                     
                 }

@@ -63,7 +63,7 @@ public class ViewZipsForAreaServlet extends HttpServlet {
            
 
    		if(Zips.isEmpty()) {
-   			errorMessage = "There is no zipcode in our database that matched that area";
+   			errorMessage = "There is no ZIP code in our database that matched that area";
    			req.setAttribute("errorMessage", errorMessage);
    			System.out.print(errorMessage);
    		}

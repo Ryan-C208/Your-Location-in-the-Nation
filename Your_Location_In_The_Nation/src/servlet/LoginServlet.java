@@ -100,7 +100,7 @@ public class LoginServlet extends HttpServlet {
 			
 			
 			if(username == null || password == null) {
-				errorMessage = "Must specify Username and Password";
+				errorMessage = "Must specify username and password";
 			}
 			
 			

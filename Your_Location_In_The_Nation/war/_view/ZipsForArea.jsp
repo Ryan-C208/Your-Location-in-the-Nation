@@ -115,7 +115,7 @@
 			<div class="header">
 				
 				<input class = "index" type="Submit" name="index" value="Index">
-				<h1 align="center">Search for an area name to get zipcodes for the area!</h1>
+				<h1 align="center">Search for an area name to get ZIP codes for the area!</h1>
 			
 				
 			
