@@ -46,6 +46,24 @@ h2 {
    font-family: Arial, Helvetica, sans-serif;
 }
 
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
 .button {
     background-color: #4CAF50; 
   border: none;
@@ -101,8 +119,13 @@ h2 {
 			<div class="error">${errorMessage}</div>
 </c:if>
 
-<!-- need to add animation -->
-<table>
+
+
+		
+	
+
+			
+			<table>
 				
 				<tr>
 					<td class="label">Name:</td>
@@ -173,6 +196,10 @@ h2 {
 			<input class="button button1"type="Submit" name="submitquestions" value="Back to Questions">
 			<input class="button button2" type="Submit" name="SaveLocation" value="Save this location">
 		</form>
+	
+			
+	
+
 </div>	
 
 <style>

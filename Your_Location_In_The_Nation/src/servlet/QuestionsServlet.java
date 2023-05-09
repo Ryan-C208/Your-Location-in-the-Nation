@@ -16,7 +16,7 @@ import LocationModel.Location;
 import SQLData.FactorGetter;
 import DatabasePersist.DerbyDatabase;
 
-
+//need to ensure user does not enter zero for any of the factors
 
 public class QuestionsServlet extends HttpServlet {
 
@@ -110,6 +110,11 @@ public class QuestionsServlet extends HttpServlet {
             		int AvgSalaryPerHouseFactor = FactorRetriver.Get_AvgSalary_Factor(averageSalaryFactor);
             		float CostOfLivingFactor = FactorRetriver.Get_CostofLiving_Factor(costOfLivingFactor, CostOfLivingType);
                 	
+            		
+            		System.out.print("COL Factor" + CostOfLivingFactor );
+            		
+            		
+            		
                 	//most important user factor
             		
             		if(crimeRateFactor >= averageSalaryFactor) {
@@ -131,7 +136,7 @@ public class QuestionsServlet extends HttpServlet {
                 	
                 	
                 	
-                	bestLocation = database.getLocation(averageSalaryFactor, CostOfLivingFactor, CrimeFactor, CostOfLivingType, mostImportantUserFact);
+                	bestLocation = database.getLocation(AvgSalaryPerHouseFactor, CostOfLivingFactor, CrimeFactor, CostOfLivingType, mostImportantUserFact);
                     
                     if(bestLocation != null) {
                     	 // store user object in session
@@ -141,6 +146,9 @@ public class QuestionsServlet extends HttpServlet {
             			resp.sendRedirect(req.getContextPath() + "/output");
 
             			return;
+                    }
+                    else {
+                    	errorMessage = "We were not able to find a Location that matched that criteria";
                     }
                     
                 }

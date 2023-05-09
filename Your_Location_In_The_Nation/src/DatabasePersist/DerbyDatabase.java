@@ -791,7 +791,11 @@ public class DerbyDatabase implements IDatabase {
 				
 			}
 			
-			bestLoc = Locations.get(Locations.size() - 1);
+			
+			if(Locations.size() != 0) {
+				bestLoc = Locations.get(Locations.size() - 1);
+			}
+			
 			
 			
 			

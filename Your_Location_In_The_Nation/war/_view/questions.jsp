@@ -126,6 +126,25 @@ img {
   height: auto;
   opacity: 0.3;
 }
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
         </style>
   
 </head>
@@ -175,7 +194,28 @@ img {
 			
 			
       
-			<input class="button button1" type="Submit" name="submit" value="Submit!">
+			<input class="button button1" id = "doLoad" type="Submit" name="submit" value="Submit!">
+			<script type="text/javascript">
+    		
+    			
+    			const divItem = document.getElementById('doLoad');	
+    			console.log("hi");
+    			divItem.addEventListener('click', divClick);
+    			
+    			function divClick() {
+    				console.log("HI");
+    				
+    				const div = document.createElement("DIV");
+    		        
+    		        
+            		div.className = "loader";
+            		document.body.appendChild(div);
+    			}
+    			
+    			
+    			
+    			
+    </script>
       <br> 
     
   
@@ -192,5 +232,7 @@ img {
         background-color: lightblue;
       }
     </style>
+    
+    
 	</body>
 </html>

@@ -1,8 +1,10 @@
 package servlet;
 
 import java.io.IOException;
+
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,6 +35,17 @@ public class OutputServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		System.out.println("Output Servlet: doGet");	
+		
+		
+		
+		
+        
+        
+		
+		
+		
+		
+		
 		AboutTheArea about;
 		Location bestLoc = null;
 		String FunThingsToDo = null;
@@ -49,9 +62,28 @@ public class OutputServlet extends HttpServlet {
 		try {
 			about = new AboutTheArea();
 			bestLoc = (Location) req.getSession().getAttribute("bestLocation");
+			/*
+			if(bestLoc == null) {
+				errorMessage = "We were not able to find a location matching that criteria";
+			}
+			*/
+			
+			
+			FunThingsToDo = about.getThingsTodo(bestLoc.getZipcode());
+			
+			
 			System.out.print("BEST LOC: " + bestLoc.getAvgSalaryPerHouse());
 			System.out.print("ZIPCODE: " +bestLoc.getZipcode());
-			FunThingsToDo = about.getThingsTodo(bestLoc.getZipcode());
+			
+			
+			
+			
+			
+			
+			
+		
+			
+			
 			Zipcode = bestLoc.getZipcode();
 			
 		} catch (Exception e) {
@@ -82,10 +114,20 @@ public class OutputServlet extends HttpServlet {
 		req.setAttribute("bestLoc", bestLoc);
 		
 		
+		
+		
+		
+		
 		// add result objects as attributes
 		// this adds the errorMessage text and the result to the response
 		req.setAttribute("errorMessage", errorMessage);
 		
+		
+		
+		
+		// Once processing is complete, forward the request to the output JSP page
+        //RequestDispatcher dispatcher2 = req.getRequestDispatcher("/_view/output.jsp");
+        //dispatcher2.forward(req, resp);
 		
 		
 		// call JSP to generate empty form

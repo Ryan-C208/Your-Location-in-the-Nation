@@ -46,6 +46,12 @@
     <servlet-class>servlet.LoginServlet</servlet-class>
   </servlet>
   
+  
+  <servlet>
+    <servlet-name>LoadServlet</servlet-name>
+    <servlet-class>servlet.LoadServlet</servlet-class>
+  </servlet>
+  
    <servlet>
     <servlet-name>PopularlocationServlet</servlet-name>
     <servlet-class>servlet.PopularlocationServlet</servlet-class>
@@ -86,7 +92,10 @@
     <url-pattern>/output</url-pattern>
   </servlet-mapping>
   
-  
+  <servlet-mapping>
+    <servlet-name>LoadServlet</servlet-name>
+    <url-pattern>/loading</url-pattern>
+  </servlet-mapping>
   
   <servlet-mapping>
     <servlet-name>QuestionsServlet</servlet-name>
