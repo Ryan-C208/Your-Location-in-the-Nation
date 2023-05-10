@@ -143,7 +143,7 @@ img {
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
   position: absolute;
-  top: 80%;
+  top: 82%;
   left: 45%
 }
 

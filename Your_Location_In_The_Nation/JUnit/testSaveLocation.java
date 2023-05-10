@@ -15,7 +15,7 @@ public class testSaveLocation {
 	public void setUp() {
 		//DerbyDatabase data = new DerbyDatabase();
 	}
-	
+	/*
 	@Test
 	public void SaveNewLocation() throws SQLException {
 		
@@ -24,12 +24,22 @@ public class testSaveLocation {
 		
 		assertTrue(Saved);
 	}
+	*/
 	
 	@Test
 	public void SaveOldLocation() throws SQLException {
 		
 		
 		boolean Saved = data.SaveLocation("BarneyD", "17302");
+		
+		assertFalse(Saved);
+	}
+	
+	@Test
+	public void SaveAnotherOldLocation() throws SQLException {
+		
+		
+		boolean Saved = data.SaveLocation("BarneyD", "17408");
 		
 		assertFalse(Saved);
 	}

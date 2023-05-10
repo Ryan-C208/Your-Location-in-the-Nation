@@ -969,7 +969,7 @@ public class DerbyDatabase implements IDatabase {
 					CostOfLivingListNoMortgage = InitialData.getCostOfLivingMortgage();
 					CostOfLivingListRent = InitialData.getCostOfLivingRent();
 					CostOfLivingListMortgage = InitialData.getCostOfLivingMortgage();
-					CostOfLivingListNoMortgage = InitialData.getCostOfLivingMortgage();
+					CostOfLivingListNoMortgage = InitialData.getCostOfLivingNoMortgage();
 					
 				} catch (IOException e) {
 					throw new SQLException("Couldn't read initial data", e);

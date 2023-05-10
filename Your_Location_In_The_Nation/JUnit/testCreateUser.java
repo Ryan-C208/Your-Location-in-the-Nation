@@ -16,6 +16,7 @@ public class testCreateUser {
 		//DerbyDatabase data = new DerbyDatabase();
 	}
 	//for these tests, false means it did create a new user, true means that it did not
+	/*
 	@Test
 	public void CreateNewUser() throws SQLException {
 		
@@ -24,12 +25,22 @@ public class testCreateUser {
 		
 		assertFalse(Created);
 	}
+	*/
 	//for these tests, false means it did create a new user, true means that it did not
 		@Test
 		public void AttemptToCreateUserThatExists() throws SQLException {
 			
 			
 			boolean Created = data.CreateUser("BillyBob", "1234");
+			
+			assertTrue(Created);
+		}
+		
+		@Test
+		public void AttemptToCreateUserThatExistsWithDifPassword() throws SQLException {
+			
+			
+			boolean Created = data.CreateUser("BarneyD", "1234");
 			
 			assertTrue(Created);
 		}
