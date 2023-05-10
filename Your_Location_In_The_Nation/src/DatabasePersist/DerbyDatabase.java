@@ -277,7 +277,14 @@ public class DerbyDatabase implements IDatabase {
 			
 			resultSet = stmt.executeQuery();
 			
+			
+			//ensure it only saves top 5 locations
+			int counter = 0;
 			while (resultSet.next()) {
+				if(counter >= 5) {
+					break;
+				}
+				
 				PopularLocations PopLoc = new PopularLocations();
 				
 				PopLoc.setZipcode(resultSet.getString(1));
@@ -289,6 +296,7 @@ public class DerbyDatabase implements IDatabase {
 				
 				
 				PopularLocs.add(PopLoc);
+				counter++;
 			}
 			//ensures that it is returned with the location with the most saves at the front of the list, and descends down after each index
 			//PopularLocs.sort(new PopLocComparator());

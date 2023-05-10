@@ -26,10 +26,26 @@ DerbyDatabase data = new DerbyDatabase();
 		
 		assertNotNull(PopLocs);
 		
+		
 		for(PopularLocations Loc: PopLocs) {
 			System.out.print(Loc.getZipcode() +"\n");
 			System.out.print(Loc.getNumberOfSaves() + "\n");
 		}
+		
+		
+		
+	
+	}
+	
+	@Test
+	public void testPopularLocationSize() throws SQLException {
+		
+		List<PopularLocations> PopLocs = data.ViewPopularLocatons();
+		
+		assertTrue(PopLocs.size() <= 5);
+		
+		
+		
 		
 		
 		
